@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='WSGITrac',
-    version = '0.3-POR3',
+    version = '0.4-penelope',
     description="Trac WSGI plugin",
     long_description="Trac WSGI plugin",
     author="Martin Paljak", author_email="martin@paljak.pri.ee",
