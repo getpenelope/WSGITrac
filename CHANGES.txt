@@ -1,0 +1,16 @@
+
+0.3-POR3 (2012/06/06)
+---------------------
+
+- fix trac problem with 403 and 401 [amleczko]
+
+0.3-POR2 (2012/05/28)
+---------------------
+
+- add trac unathorized view [amleczko]
+
+0.3-POR1 (2011/11/20)
+---------------------
+
+- Trac 0.12 compatibility
+- requiredauth option

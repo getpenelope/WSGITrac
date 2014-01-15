@@ -1,0 +1,79 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:py="http://genshi.edgewall.org/"
+      py:strip="">
+
+
+    <head>
+
+      <title>Trac Error</title>
+
+    <link rel="stylesheet" type="text/css" href="/fanstatic/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/fanstatic/bootstrap/css/bootstrap.responsive.css" />
+    <link rel="stylesheet" type="text/css" href="/fanstatic/deform_bootstrap/chosen_bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/fanstatic/deform_bootstrap/jquery_chosen/chosen.css" />
+    <link rel="stylesheet" type="text/css" href="/fanstatic/jqueryui/themes/overcast/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/fanstatic/jquery-timepicker-addon/jquery-ui-timepicker-addon.css" />
+    <link rel="stylesheet" type="text/css" href="/fanstatic/por/css/dashboard.css" />
+    <script type="text/javascript" src="/fanstatic/jquery/jquery.js"></script>
+    <script type="text/javascript" src="/fanstatic/jquery_metadata/jquery.metadata.js"></script>
+    <script type="text/javascript" src="/fanstatic/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/fanstatic/deform/scripts/deform.js"></script>
+    <script type="text/javascript" src="/fanstatic/deform/scripts/jquery.form.js"></script>
+    <script type="text/javascript" src="/fanstatic/deform_bootstrap/jquery_chosen/chosen.jquery.js"></script>
+    <script type="text/javascript" src="/fanstatic/fa_bootstrap/js/listing.js"></script>
+    <script type="text/javascript" src="/fanstatic/jquery_tablesorter/jquery.tablesorter.js"></script>
+    <script type="text/javascript" src="/fanstatic/jqueryui/ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="/fanstatic/jqueryui/ui/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="/fanstatic/jqueryui/ui/jquery.ui.datepicker.js"></script>
+    <script type="text/javascript" src="/fanstatic/jqueryui/ui/i18n/jquery-ui-i18n.js"></script>
+    <script type="text/javascript" src="/fanstatic/jquery-timepicker-addon/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="/fanstatic/jquery-timepicker-addon/localization/jquery-ui-timepicker-it.js"></script>
+    <script type="text/javascript" src="/fanstatic/por/js/add_entry_from_ticket.js"></script>
+    <script type="text/javascript" src="/fanstatic/por/js/dashboard.js"></script>
+    <script>
+
+          $(document).ready(function() {
+              "use strict";
+              $.get('/navbar',
+                    {},
+                    function(responseText, textStatus, jqXHR) {
+                        var rt = $(responseText);
+
+                        /* TRAC DROPDOWN ON TOP */
+                        // attach the trac menu to the last left-aligned navigation menu
+                        $('#bootstrap-navbar').html(rt.find('div.navbar-inner'));
+                        $('#bootstrap-navbar li.dropdown').not('.pull-right li').last().after(
+                          $('#bootstrap-navbar-trac-specific>li')
+                        );
+                        $('#bootstrap-navbar-trac-specific').remove();
+                        $('#bootstrap-navbar .dropdown-toggle').dropdown();
+
+                        $('footer.footer').replaceWith(rt.find('footer.footer'));
+                    }
+                    );})
+    </script>  
+    </head>
+
+    <body>
+        <div id="bootstrap-navbar" class="navbar navbar-fixed-top">
+            <!-- dinamically loaded -->
+          </div>
+
+        <div class="container">
+          <div class="alert alert-error alert-block">
+              <h2>Insufficient permissions!</h2><h2>
+                  <p><strong>Oh snap!</strong> You dont have enough permissions to access this 
+                  resource!</p>
+              <div class="alert-actions">
+                <a class="btn btn-success" href="/">Try to go home</a>
+              </div>
+          </h2></div>
+        </div>
+
+      </body>
+
+</html>
