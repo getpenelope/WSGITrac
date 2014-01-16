@@ -1,0 +1,5 @@
+include *.txt
+include *.cfg
+include *.ini
+recursive-include wsgiplugin *
+global-exclude *.pyc
