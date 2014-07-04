@@ -68,6 +68,12 @@ class WSGITrac:
       if self.parent:
         project = path_info_pop(environ)
         if project:
+
+            if not os.path.isdir('{0}/{1}'.format(self.path, project)):
+                start_response("404 Not Found", [('content-type', 'text/html')])
+                return self.template.render({'message': 'Trac name {0} does\'t exist.'.format(project)},
+                        format='xhtml', template="wsgiplugin.notfound")
+
             environ['trac.env_path'] = os.path.join(self.path, project)
             try:
                 return dispatch_request(environ, start_response)

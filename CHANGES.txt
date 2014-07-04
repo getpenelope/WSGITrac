@@ -3,7 +3,6 @@
 
  - fix problem with exception handling [amleczko]
 
-
 0.3-POR3 (2012/06/06)
 ---------------------
 
